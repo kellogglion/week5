@@ -61,7 +61,7 @@ window.addEventListener('DOMContentLoaded', async function() {
       <div class="mt-8">
       <div class="text-center space-y-2">
         <div class="location font-bold text-3xl">Current Weather for ${APILocation.name}, ${APILocation.region}, ${APILocation.country}</div>
-        <div class="font-bold">
+        <div class="font-bold text-3x1">
           <img src="https:${APICurrent.condition.icon}" class="inline-block">
           <span class="temperature">${APICurrent.temp_f}</span>° 
           and
@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', async function() {
             <div class="text-center space-y-8">
               <div></div>
               <div></div>
-              <div class="font-bold text-3xl">${days} Day Forecast</div>
+              <div class="font-bold text-3xl">${APIForecast.forecastday.length} Day Forecast</div>
             </div>
             <div></div>
             <div></div>
@@ -112,14 +112,16 @@ window.addEventListener('DOMContentLoaded', async function() {
                     let SiteForecast = document.querySelector(`.forecast`)
                   
                     SiteForecast.insertAdjacentHTML(`beforeend`,`
-                    <div class="text-center space-y-8 border-purple">
+                    <div></div>
+                    <div></div>
+                    <div class="text-center space-y-8 border-4">
                         <img src="https:${forecastIcon}" class="mx-auto">
                         <h1 class="text-2xl text-bold text-purple-700">${forecastDate}</h1>
-                        <h2 class="text-xl">High ${forecastMax} – Low ${forecastMin}</h2>
+                        <h2 class="text-bold">High ${forecastMax} – Low ${forecastMin}</h2>
                         <p class="text-blue-500">${forecastCondition}</h1>
-                        <div></div>
-                        <div></div>
                     </div>
+                    <div></div>
+                    <div></div>
                     `)
                   }
 
@@ -132,8 +134,8 @@ window.addEventListener('DOMContentLoaded', async function() {
                   <div class="text-center space-y-8">
                     <div></div>
                     <div></div>
-                    <div class="text-2xl">No forecast requested.  If you would like
-                    forecast data, please enter the numbers of days forecast you would like in the entry box above.</div>
+                    <p>No forecast requested.  If you would like
+                    forecast data, please enter the numbers of days forecast you would like in the entry box above.</p>
                   </div>
               </div>        
             `
