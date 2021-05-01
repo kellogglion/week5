@@ -10,28 +10,55 @@ function getRandomInt(max) {
 
 // Store a reference to the roll button in memory
 
+let roll = document.querySelector(`#roll-button`)
+
 // Listen for the clicking of the roll button, when clicked:
+
+          // roll.addEventListener(`click`, async function(event){
+          //   alert(`the button was clicked!`)
+          // })
 
   // - Ignore the roll button's default behavior
 
-  // - Store a random integer in memory, representing the roll of the first die
-  
-  // - Store a random integer in memory, representing the roll of the second die
+roll.addEventListener(`click`, async function(event){
+  event.preventDefault()
 
-  // - Store the total of the two random numbers, representing the total roll
+  let random1 = getRandomInt(6) 
+  let random2 = getRandomInt(6) 
+  let total = random1 + random2
 
-  // - Replace the first die image using the first random value (hint: setAttribute)
+            let die1 = document.querySelector(`.die1`)
+            die1.setAttribute(`src`, `../images/dice/${random1}.png`)
 
-  // - Replace the second die image using the second random value (hint: setAttribute)
+            let die2 = document.querySelector(`.die2`)
+            die2.setAttribute(`src`, `../images/dice/${random2}.png`)
 
-  // - Store a reference to the player name input element
+            let nameInput = document.querySelector(`#player`)
+            let name = nameInput.value
 
-  // - Grab the value of the player name element and store the player's name in memory
-  
+
+   
+
   // - Make sure the player's name is filled out; if it is:
 
+            if(name.length > 0){
+               let sentence = `Congratulations ${name}, you earned a ${total}!`
+               let list = document.querySelector(`.result`)   
+               list.insertAdjacentHTML(`beforeend`, `
+                  <li>${sentence}</li>
+               `)             
+            }
+            else{
+              let sentence = `Congratulations, you earned a ${total}!`
+              let list = document.querySelector(`.result`)
+              list.insertAdjacentHTML(`beforeend`, `
+                <li>${sentence}</li>
+              `)
+            }
     // - Form a sentence in memory, containing the player's name and the total that was rolled
 
     // - Store a reference to the "result" un-ordered list element
 
     // - Insert the sentence to the "result" un-ordered list as a list item (li)
+
+  })
